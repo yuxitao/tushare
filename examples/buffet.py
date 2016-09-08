@@ -74,7 +74,7 @@ df2 = pd.merge(df, quotes, on='code')
 
 print('报价和股票池匹配(%d)' % len(quotes))
 # 计算价值价格比
-df2['VPR'] = df2['value'] / df2['trade']
+df2['VPR'] = round(df2['value'] / df2['trade'],3)
 df2 = df2[['code', 'name_x', 'epcf', 'value', 'trade', 'VPR']]
 df2 = df2.rename(columns={'name_x': 'name'})
 df2 = df2[df2.VPR > 0]
